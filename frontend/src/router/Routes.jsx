@@ -6,7 +6,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import SearchResultList from "../pages/SearchResultList";
 
-const Routes = () => {
+const Router = () => {
   return (
     <Routes>
       <Route path="/" element={<Navigate to={"/home"} />} />
@@ -20,4 +20,4 @@ const Routes = () => {
   );
 };
 
-export default Routes;
+export default Router;

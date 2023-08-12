@@ -1,7 +1,16 @@
 import React from "react";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
+import Router from "../../router/Routes";
 
 const Layout = () => {
-  return <div>this is the layout of the application component</div>;
+  return (
+    <>
+      <Header />
+      <Router />
+      <Footer />
+    </>
+  );
 };
 
 export default Layout;
