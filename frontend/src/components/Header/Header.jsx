@@ -1,13 +1,14 @@
 import React from "react";
 import { Container, Row, Button } from "reactstrap";
 import { NavLink, Link } from "react-router-dom";
+import "./header.css";
 const Nav_Links = [
   {
     path: "/home",
     display: "Home",
   },
   {
-    path: "#",
+    path: "/about",
     display: "About",
   },
   {
@@ -27,12 +28,19 @@ const Header = () => {
             </div>
             {/* menu */}
             <div className="navigation">
-              <ul className="menu d-flex align-items-center gap-5">
-              {Nav_Links.map((item,index)=>(
-                <li className="nav__item" key={index}>
-                    <NavLink to={item.path}>{item.display}</NavLink>
-                </li>
-              ))}
+              <ul className="menu d-flex align-items-center justify-content-between gap-5">
+                {Nav_Links.map((item, index) => (
+                  <li className="nav__item" key={index}>
+                    <NavLink
+                      to={item.path}
+                      className={(navClass) =>
+                        navClass.isActive ? "active__link" : ""
+                      }
+                    >
+                      {item.display}
+                    </NavLink>
+                  </li>
+                ))}
               </ul>
             </div>
             {/* menuside */}
@@ -45,6 +53,9 @@ const Header = () => {
                   <Link to={"/register"}>register</Link>
                 </Button>
               </div>
+              <span className="mobile__menu">
+                <i class="ri-menu-line"></i>
+              </span>
             </div>
           </div>
         </Row>
