@@ -1,11 +1,3 @@
-import tourImg01 from "../images/tour-img01.jpg";
-import tourImg02 from "../images/tour-img02.jpg";
-import tourImg03 from "../images/tour-img03.jpg";
-import tourImg04 from "../images/tour-img04.jpg";
-import tourImg05 from "../images/tour-img05.jpg";
-import tourImg06 from "../images/tour-img06.jpg";
-import tourImg07 from "../images/tour-img07.jpg";
-
 const tours = [
   {
     id: "01",
@@ -20,9 +12,13 @@ const tours = [
         name: "jhon doe",
         rating: 4.6,
       },
+      {
+        name: "jhon doe",
+        rating: 2,
+      },
     ],
     avgRating: 4.5,
-    photo: tourImg01,
+    photo: "/images/tour-img01.jpg",
     featured: true,
   },
   {
@@ -33,14 +29,9 @@ const tours = [
     price: 99,
     maxGroupSize: 8,
     desc: "this is the description",
-    reviews: [
-      {
-        name: "jhon doe",
-        rating: 4.6,
-      },
-    ],
+    reviews: [],
     avgRating: 4.5,
-    photo: tourImg02,
+    photo: "/images/tour-img02.jpg",
     featured: true,
   },
   {
@@ -58,7 +49,7 @@ const tours = [
       },
     ],
     avgRating: 4.5,
-    photo: tourImg03,
+    photo: "/images/tour-img03.jpg",
     featured: true,
   },
   {
@@ -76,7 +67,7 @@ const tours = [
       },
     ],
     avgRating: 4.5,
-    photo: tourImg04,
+    photo: "/images/tour-img04.jpg",
     featured: true,
   },
   {
@@ -87,14 +78,9 @@ const tours = [
     price: 99,
     maxGroupSize: 8,
     desc: "this is the description",
-    reviews: [
-      {
-        name: "jhon doe",
-        rating: 4.6,
-      },
-    ],
+    reviews: [],
     avgRating: 4.5,
-    photo: tourImg05,
+    photo: "/images/tour-img05.jpg",
     featured: false,
   },
   {
@@ -112,7 +98,7 @@ const tours = [
       },
     ],
     avgRating: 4.5,
-    photo: tourImg06,
+    photo: "/images/tour-img06.jpg",
     featured: false,
   },
   {
@@ -130,7 +116,7 @@ const tours = [
       },
     ],
     avgRating: 4.5,
-    photo: tourImg07,
+    photo: "/images/tour-img07.jpg",
     featured: false,
   },
   {
@@ -141,14 +127,9 @@ const tours = [
     price: 99,
     maxGroupSize: 8,
     desc: "this is the description",
-    reviews: [
-      {
-        name: "jhon doe",
-        rating: 4.6,
-      },
-    ],
+    reviews: [],
     avgRating: 4.5,
-    photo: tourImg03,
+    photo: "/images/tour-img03.jpg",
     featured: false,
   },
 ];

@@ -3,6 +3,8 @@ import "../styles/home.css";
 import { Container, Row, Col } from "reactstrap";
 import Subtitle from "../shared/Subtitle";
 import SearchBar from "../shared/SearchBar";
+import Service from "../services/Service";
+import FeaturedTourList from "../components/featured_tour/FeaturedTourList";
 const Home = () => {
   return (
     <>
@@ -34,7 +36,7 @@ const Home = () => {
             </Col>
             <Col lg="2">
               <div className="hero__img-box mt-4">
-                <video src="/images/hero-video.mp4" alt="video" controls/>
+                <video src="/images/hero-video.mp4" alt="video" controls />
               </div>
             </Col>
             <Col lg="2">
@@ -42,7 +44,31 @@ const Home = () => {
                 <img src="/images/hero-img02.jpg" alt="image" />
               </div>
             </Col>
-            <SearchBar/>
+            <SearchBar />
+          </Row>
+        </Container>
+      </section>
+      {/* this is the second section */}
+      <section>
+        <Container>
+          <Row>
+            <Col lg="3">
+              <h5 className="service__subtitle">what we serve</h5>
+              <h2 className="service__title">we offer our best services</h2>
+            </Col>
+            <Service />
+          </Row>
+        </Container>
+      </section>
+      {/* this is the third section */}
+      <section>
+        <Container>
+          <Row>
+            <Col lg="12" className="mb-5">
+              <Subtitle subtitle={"Explore"}/>
+              <h2 className="featured__tour_title">Our featured tours </h2>
+            </Col>
+            <FeaturedTourList/>
           </Row>
         </Container>
       </section>
