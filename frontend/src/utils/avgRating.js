@@ -11,4 +11,4 @@ const calculateAvgRating = (reviews) => {
     avgRating,
   };
 };
-export default calculateAvgRating
+export default calculateAvgRating;

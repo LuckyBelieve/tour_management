@@ -65,10 +65,10 @@ const Home = () => {
         <Container>
           <Row>
             <Col lg="12" className="mb-5">
-              <Subtitle subtitle={"Explore"}/>
+              <Subtitle subtitle={"Explore"} />
               <h2 className="featured__tour_title">Our featured tours </h2>
             </Col>
-            <FeaturedTourList/>
+            <FeaturedTourList />
           </Row>
         </Container>
       </section>
