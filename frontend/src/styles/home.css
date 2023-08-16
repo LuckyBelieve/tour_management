@@ -84,3 +84,9 @@
   margin-bottom: 2.5rem;
   margin-top: 1rem;
 }
+.masonry-gallery{
+  transition: .3s;
+}
+.masonry-gallery:hover{
+  transform: scale(1.05);
+}

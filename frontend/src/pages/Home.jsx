@@ -5,6 +5,7 @@ import Subtitle from "../shared/Subtitle";
 import SearchBar from "../shared/SearchBar";
 import Service from "../services/Service";
 import FeaturedTourList from "../components/featured_tour/FeaturedTourList";
+import MainGallery from "../components/image_gallery/mainGallery";
 const Home = () => {
   return (
     <>
@@ -117,7 +118,18 @@ const Home = () => {
               <h2 className="gallery_title">Visit our customers tour gallery</h2>
             </Col>
             <Col lg="12">
-              
+              <MainGallery/>
+            </Col>
+          </Row>
+        </Container>
+      </section>
+      {/* the end of the section and the starting of the other section */}
+      <section>
+        <Container>
+          <Row>
+            <Col lg="12">
+              <Subtitle subtitle={"Fan love"}/>
+              <h2 className="testimonial_title">what our fans says about us</h2>
             </Col>
           </Row>
         </Container>
