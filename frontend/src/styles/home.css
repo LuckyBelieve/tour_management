@@ -90,3 +90,7 @@
 .masonry-gallery:hover{
   transform: scale(1.05);
 }
+.testimonial_title{
+  font-size: 2.2rem;
+  margin-top: 1rem;
+}

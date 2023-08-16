@@ -6,6 +6,7 @@ import SearchBar from "../shared/SearchBar";
 import Service from "../services/Service";
 import FeaturedTourList from "../components/featured_tour/FeaturedTourList";
 import MainGallery from "../components/image_gallery/mainGallery";
+import Testimonials from "./Testimonials";
 const Home = () => {
   return (
     <>
@@ -130,6 +131,7 @@ const Home = () => {
             <Col lg="12">
               <Subtitle subtitle={"Fan love"}/>
               <h2 className="testimonial_title">what our fans says about us</h2>
+              <Testimonials/>
             </Col>
           </Row>
         </Container>
