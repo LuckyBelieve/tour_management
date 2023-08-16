@@ -15,7 +15,7 @@ const Home = () => {
               <div className="hero__content">
                 <div className="hero__subtitle d-flex align-items-center">
                   <Subtitle subtitle={"Know Before You Go"} />
-                  <img src="/images/world.png" alt="welcome image" />
+                  <img src="/images/world.png" alt="welcome_image" />
                 </div>
                 <h1>
                   Traveling opens the door to creating{" "}
@@ -31,7 +31,7 @@ const Home = () => {
             </Col>
             <Col lg="2">
               <div className="hero__img-box">
-                <img src="/images/hero-img01.jpg" alt="image" />
+                <img src="/images/hero-img01.jpg" alt="_img" />
               </div>
             </Col>
             <Col lg="2">
@@ -41,7 +41,7 @@ const Home = () => {
             </Col>
             <Col lg="2">
               <div className="hero__img-box mt-5">
-                <img src="/images/hero-img02.jpg" alt="image" />
+                <img src="/images/hero-img02.jpg" alt="_img" />
               </div>
             </Col>
             <SearchBar />
@@ -69,6 +69,56 @@ const Home = () => {
               <h2 className="featured__tour_title">Our featured tours </h2>
             </Col>
             <FeaturedTourList />
+          </Row>
+        </Container>
+      </section>
+      {/* end of the other section and the starting of the new one */}
+      <section>
+        <Container>
+          <Row>
+            <Col lg="6">
+              <div className="experience_content">
+                <Subtitle subtitle={"Experience"}/>
+                <h2>with all experience <br/> we will serve you</h2>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  <br/>
+                  Lorem ipsum dolor sit amet consectetur adipisicing.
+                </p>
+              </div>
+              <div className="counter__wrapper d-flex align-items-center gap-5">
+                 <div className="counter_box">
+                  <span>12k+</span>
+                  <h6>successfull trip</h6>
+                 </div>
+                 <div className="counter_box">
+                  <span>2k+</span>
+                  <h6>regular clients</h6>
+                 </div>
+                 <div className="counter_box">
+                  <span>15</span>
+                  <h6>years experience</h6>
+                 </div>
+              </div>
+            </Col>
+            <Col lg="6">
+              <div className="experience__img">
+                <img src="images/experience.png" alt="experience_image" />
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </section>
+      {/* section end and the starting of the other section */}
+      <section>
+        <Container>
+          <Row>
+            <Col lg="12">
+              <Subtitle subtitle={"Gallery"}/>
+              <h2 className="gallery_title">Visit our customers tour gallery</h2>
+            </Col>
+            <Col lg="12">
+              
+            </Col>
           </Row>
         </Container>
       </section>
