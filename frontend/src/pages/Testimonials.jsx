@@ -1,6 +1,5 @@
 import React from "react";
 import Slider from "react-slick";
-import TestimonialComponent from "../components/Testimony/TestimonialComponent";
 const Testimonials = () => {
   const settings = {
     dots: true,
