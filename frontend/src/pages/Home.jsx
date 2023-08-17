@@ -7,6 +7,7 @@ import Service from "../services/Service";
 import FeaturedTourList from "../components/featured_tour/FeaturedTourList";
 import MainGallery from "../components/image_gallery/mainGallery";
 import Testimonials from "./Testimonials";
+import Newsletter from "../shared/NewsLatter";
 const Home = () => {
   return (
     <>
@@ -136,6 +137,7 @@ const Home = () => {
           </Row>
         </Container>
       </section>
+      <Newsletter/>
     </>
   );
 };
