@@ -19,7 +19,7 @@
    color: var(--text-color); 
 }
 .tour_info span i{
-    color: var(--secondary-color);
+    /* color: var(--secondary-color); */
     font-size: 1.1rem;
 }
 .tour_extra-details{

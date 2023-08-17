@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import "../styles/tourDetails.css";
 import { Container, Row, Col, Form, ListGroup } from "reactstrap";
 import { useParams } from "react-router-dom";
 import TourData from "../assets/data/tours";
 import calculateAvgRating from "../utils/avgRating";
+import Booking from "../components/Booking/Booking";
+import Newsletter from "../shared/NewsLatter";
 
 const TourDetails = () => {
+  const reviewMsgRef = useRef("");
+  const [tourRating, setTourRating] = useState(null);
+
   const { id } = useParams();
   const tour = TourData.find((tour) => tour.id === id);
   const {
@@ -21,6 +26,13 @@ const TourDetails = () => {
   } = tour;
   const { totalRating, avgRating } = calculateAvgRating(reviews);
   const options = { day: "numeric", month: "long", year: "numeric" };
+
+
+  // submitting the review
+  const submitHandler = (e)=>{
+    e.preventDefault();
+   const reviewText = reviewMsgRef.current.value
+  }
   return (
     <>
       <section>
@@ -73,26 +85,31 @@ const TourDetails = () => {
                 {/* tour review section */}
                 <div className="tour_review mt-4">
                   <h4>Reviews({reviews?.length} reviews)</h4>
-                  <Form>
+                  <Form onSubmit={submitHandler}>
                     <div className="d-flex align-items-center gap-3 mb-4 rating_group">
-                      <span>
-                        <i class="ri-star-s-fill"></i>
+                      <span onClick={()=>setTourRating(1)}>
+                        1<i class="ri-star-s-fill"></i>
                       </span>
-                      <span>
-                        <i class="ri-star-s-fill"></i>
+                      <span onClick={()=>setTourRating(2)}>
+                        2<i className="ri-star-s-fill"></i>
                       </span>
-                      <span>
-                        <i class="ri-star-s-fill"></i>
+                      <span onClick={()=>setTourRating(3)}>
+                        3<i className="ri-star-s-fill"></i>
                       </span>
-                      <span>
-                        <i class="ri-star-s-fill"></i>
+                      <span onClick={()=>setTourRating(4)}>
+                        4<i className="ri-star-s-fill"></i>
                       </span>
-                      <span>
-                        <i class="ri-star-s-fill"></i>
+                      <span onClick={()=>setTourRating(5)}>
+                        5<i className="ri-star-s-fill"></i>
                       </span>
                     </div>
                     <div className="reviews_input">
-                      <input type="text" placeholder="share your thoughts" />
+                      <input
+                        type="text"
+                        ref={reviewMsgRef}
+                        placeholder="share your thoughts"
+                        required
+                      />
                       <button
                         className="btn primary__btn text-white"
                         type="submit"
@@ -128,9 +145,13 @@ const TourDetails = () => {
                 </div>
               </div>
             </Col>
+            <Col lg="4">
+              <Booking tour={tour} avgRating = {avgRating}/>
+            </Col>
           </Row>
         </Container>
       </section>
+      <Newsletter/>
     </>
   );
 };
