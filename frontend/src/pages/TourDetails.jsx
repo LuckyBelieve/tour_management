@@ -1,8 +1,11 @@
 import React from 'react'
-
+import "../styles/tourDetails.css";
+import {} from "reactstrap";
 const TourDetails = () => {
   return (
-    <div>this is the TourDetails page</div>
+    <div>
+
+    </div>
   )
 }
 
