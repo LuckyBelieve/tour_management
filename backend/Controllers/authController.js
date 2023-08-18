@@ -17,12 +17,12 @@ export const Register = async (req, res) => {
   } catch (error) {}
 };
 
-export const Login = async (req,res) => {
+export const Login = async (req, res) => {
   const email = req.body.email;
   try {
     let user = await User.findOne({ email });
     if (!user) {
-      res
+      return res
         .status(404)
         .json({ success: false, message: "invalid email or password" });
     }
@@ -31,22 +31,39 @@ export const Login = async (req,res) => {
       user.password
     );
     if (!checkPassword) {
-      res
+      return res
         .status(404)
         .json({ success: false, message: "invalid email or password" });
     }
-    const {password,role,...rest} = user._doc;
+    const { password, role, ...rest } = user._doc;
 
     // assigning the token to the user
 
-    const token = jwt.sign({id:user._id,role:user.role},process.env.JWT_SECRET_KEY,{
-        expiresIn:"15d"
-    });
+    const token = jwt.sign(
+      { id: user._id, role: user.role },
+      process.env.JWT_SECRET_KEY,
+      {
+        expiresIn: "15d",
+      }
+    );
 
     // setting the token in browser cookies
-    res.cookie("accessToken",token,{
+    res
+      .cookie("accessToken", token, {
         httpOnly: true,
-        expires:token.expiresIn,
-    }).status(200).json({success:true,message:"successfully logged in",data:{...rest}})
-  } catch (error) {}
+        expires: token.expiresIn,
+      })
+      .status(200)
+      .json({
+        success: true,
+        token,
+        message: "successfully logged in",
+        role,
+        data: { ...rest },
+      });
+  } catch (error) {
+    res
+      .status(404)
+      .json({ success: false, message: "failed to log in" });
+  }
 };

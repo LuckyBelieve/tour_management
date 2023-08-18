@@ -1,17 +1,18 @@
 import express from 'express';
 import {DeleteUser, getAllUser, getSingleUser, updateUser } from '../Controllers/UserController.js';
+import { verifyAdmin, verifyUser } from '../middleware/authMiddleware.js';
 const Router = express.Router();
 
-//update a new User
-Router.put("/update/:id", updateUser);
+//update a User
+Router.put("/update/:id",verifyUser ,updateUser);
 
-//delete a new User
-Router.delete("/delete/:id", DeleteUser);
+//delete a User
+Router.delete("/delete/:id",verifyUser,DeleteUser);
 
-//getSingle a new User
-Router.get("/User/:id", getSingleUser);
+//getSingle a User
+Router.get("/User/:id",verifyUser ,getSingleUser);
 
-//getAll a new User
-Router.get("/allUsers", getAllUser);
+//getAll a User
+Router.get("/allUsers",verifyAdmin ,getAllUser);
 
 export default Router;

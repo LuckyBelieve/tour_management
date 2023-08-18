@@ -7,6 +7,8 @@ import cookieParser from "cookie-parser";
 import tourRoutes from "./Routes/tourRoutes.js";
 import userRoutes from "./Routes/userRoutes.js";
 import authRoutes from "./Routes/authRoutes.js";
+import reviewRoutes from "./Routes/reviewRoutes.js";
+import bookingRoutes from "./Routes/bookingRoutes.js";
 
 dotenv.config();
 const app = express();
@@ -27,6 +29,8 @@ app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use("/api/tours", tourRoutes);
-app.use("/api/users",userRoutes);
-app.use("/api/auth",authRoutes);
+app.use("/api/v1/tours", tourRoutes);
+app.use("/api/v1/users", userRoutes);
+app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/review", reviewRoutes);
+app.use("/api/v1/booking", bookingRoutes);

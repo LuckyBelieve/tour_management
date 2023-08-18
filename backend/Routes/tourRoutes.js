@@ -9,16 +9,17 @@ import {
   getTourCount,
   updateTour,
 } from "../Controllers/TourController.js";
+import { verifyAdmin } from "../middleware/authMiddleware.js";
 const Router = express.Router();
 
 //create a new tour
-Router.post("/createTour", CreateTour);
+Router.post("/createTour", verifyAdmin, CreateTour);
 
 //update a new tour
-Router.put("/update/:id", updateTour);
+Router.put("/update/:id", verifyAdmin, updateTour);
 
 //delete a new tour
-Router.delete("/delete/:id", DeleteTour);
+Router.delete("/delete/:id", verifyAdmin, DeleteTour);
 
 //getSingle a new tour
 Router.get("/tour/:id", getSingleTour);
