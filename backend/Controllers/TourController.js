@@ -56,7 +56,6 @@ export const getAllTour = async (req, res) => {
     res.status(404).json({
       success: true,
       message: "failed to fetch all the tours",
-      data: AllTours,
     });
   }
 };

@@ -2,17 +2,18 @@ import React, { useRef, useState } from "react";
 import "../styles/tourDetails.css";
 import { Container, Row, Col, Form, ListGroup } from "reactstrap";
 import { useParams } from "react-router-dom";
-import TourData from "../assets/data/tours";
 import calculateAvgRating from "../utils/avgRating";
 import Booking from "../components/Booking/Booking";
 import Newsletter from "../shared/NewsLatter";
-
+import useFetch from "../hooks/useFetch";
+import { baseUrl } from "../utils/config";
 const TourDetails = () => {
   const reviewMsgRef = useRef("");
   const [tourRating, setTourRating] = useState(null);
 
   const { id } = useParams();
-  const tour = TourData.find((tour) => tour.id === id);
+  const {data:tour,isLoading,error} = useFetch(`${baseUrl}/tours/tour/${id}`);
+  console.log(tour);
   const {
     photo,
     title,
