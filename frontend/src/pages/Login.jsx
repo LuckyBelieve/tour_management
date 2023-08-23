@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "../styles/login.css";
 import {
   Container,
@@ -9,18 +9,38 @@ import {
   Button,
   Input,
 } from "reactstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/authContext";
+import { baseUrl } from "../utils/config";
 const Login = () => {
   const [credentials, setCredentials] = useState({
-    email:"",
-    password:"",
+    email: "",
+    password: "",
   });
   const handlChange = (e) => {
     setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   };
-  const handleCLick  = (e) => {
+  const { dispatch } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const handleCLick = async (e) => {
     e.preventDefault();
-  }
+    dispatch({ type: "LOGIN_START" });
+    try {
+      const res = await fetch(`${baseUrl}/auth/login`, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(credentials),
+      });
+      const result = await res.json();
+      if (!res.ok) alert(result.message);
+      dispatch({ type: "LOGIN_SUCCESS", payload: result.data });
+      console.log(result.data);
+      navigate("/");
+    } catch (error) {
+      dispatch({ type: "LOGIN_FAILED", payload: error.message });
+      alert(error.message);
+    }
+  };
   return (
     <section>
       <Container>
@@ -35,7 +55,7 @@ const Login = () => {
                   <img src="/images/user.png" alt="user_image" />
                 </div>
                 <h2>Login</h2>
-                <Form>
+                <Form onSubmit={handleCLick}>
                   <FormGroup>
                     <input
                       type="email"
@@ -61,7 +81,9 @@ const Login = () => {
                     Login
                   </Button>
                 </Form>
-                <p>Don't have an account!? <Link to={"/register"}>Create</Link></p>
+                <p>
+                  Don't have an account!? <Link to={"/register"}>Create</Link>
+                </p>
               </div>
             </div>
           </Col>

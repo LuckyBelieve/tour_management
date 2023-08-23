@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "../styles/login.css";
 import {
   Container,
@@ -9,19 +9,36 @@ import {
   Button,
   Input,
 } from "reactstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/authContext";
+import { baseUrl } from "../utils/config";
 const Register = () => {
+  const navigate = useNavigate();
   const [credentials, setCredentials] = useState({
-    username:"",
-    email:"",
-    password:"",
+    username: "",
+    email: "",
+    password: "",
   });
   const handlChange = (e) => {
     setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   };
-  const handleCLick  = (e) => {
+  const {dispatch} = useContext(AuthContext);
+  const handleCLick = async (e) => {
     e.preventDefault();
-  }
+    try {
+      const res = await fetch(`${baseUrl}/auth/register`, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(credentials),
+      });
+      const result = await res.json();
+      if (!res.ok) alert(result.message);
+      dispatch({ type: "REGISTER_SUCCESS"});
+      navigate("/login");
+    } catch (error) {
+      alert(error.message);
+    }
+  };
   return (
     <section>
       <Container>
@@ -71,7 +88,9 @@ const Register = () => {
                     Create account
                   </Button>
                 </Form>
-                <p>Don't have an account!? <Link to={"/login"}>Login</Link></p>
+                <p>
+                  Don't have an account!? <Link to={"/login"}>Login</Link>
+                </p>
               </div>
             </div>
           </Col>
