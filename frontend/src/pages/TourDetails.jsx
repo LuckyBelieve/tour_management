@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useContext } from "react";
 import "../styles/tourDetails.css";
 import { Container, Row, Col, Form, ListGroup } from "reactstrap";
 import { useParams } from "react-router-dom";
@@ -7,10 +7,11 @@ import Booking from "../components/Booking/Booking";
 import Newsletter from "../shared/NewsLatter";
 import useFetch from "../hooks/useFetch";
 import { baseUrl } from "../utils/config";
+import { AuthContext } from "../context/authContext";
 const TourDetails = () => {
   const reviewMsgRef = useRef("");
   const [tourRating, setTourRating] = useState(null);
-
+  const { user } = useContext(AuthContext);
   const { id } = useParams();
   const {
     data: tour,
@@ -34,9 +35,29 @@ const TourDetails = () => {
   const options = { day: "numeric", month: "long", year: "numeric" };
 
   // submitting the review
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
     const reviewText = reviewMsgRef.current.value;
+    try {
+      if (!user || user === undefined || user === null) {
+        alert("please sign in first");
+      }
+      const reviewObj = {
+        username: user.username,
+        reviewText,
+        rating: tourRating,
+      };
+      const res = await fetch(`${baseUrl}/review/create/${id}`, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        credentials:"include",
+        body: JSON.stringify(reviewObj),
+      });
+      const result = await res.json();
+      if(!res.ok) alert(result.message);
+    } catch (error) {
+      alert(error.message);
+    }
   };
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -131,12 +152,12 @@ const TourDetails = () => {
                     </Form>
                     <ListGroup className="user_reviews">
                       {reviews?.map((review, index) => (
-                        <div className="review_item">
+                        <div className="review_item" key={index}>
                           <img src="/images/avatar.jpg" alt="reviewer_image" />
                           <div className="w-100">
                             <div className="d-flex align-items-center justify-content-between">
                               <div>
-                                <h5>Lucky</h5>
+                                <h5>{review.username}</h5>
                                 <p>
                                   {new Date("05-18-2023").toLocaleDateString(
                                     "en-US",
@@ -145,10 +166,10 @@ const TourDetails = () => {
                                 </p>
                               </div>
                               <span className="d-flex align-items-center">
-                                5<i class="ri-star-s-fill"></i>
+                                {review.rating}<i class="ri-star-s-fill"></i>
                               </span>
                             </div>
-                            <h6>amazing tour</h6>
+                            <h6>{review.reviewText}</h6>
                           </div>
                         </div>
                       ))}
