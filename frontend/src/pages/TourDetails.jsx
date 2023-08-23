@@ -25,7 +25,8 @@ const TourDetails = () => {
     maxGroupSize,
     address,
   } = tour;
-  const { totalRating, avgRating } = calculateAvgRating(reviews);
+  const finalReviews = reviews ? reviews : [];
+  const { totalRating, avgRating } = calculateAvgRating(finalReviews);
   const options = { day: "numeric", month: "long", year: "numeric" };
 
 
@@ -147,7 +148,7 @@ const TourDetails = () => {
               </div>
             </Col>
             <Col lg="4">
-              <Booking tour={tour} avgRating = {avgRating}/>
+              <Booking tour={tour} avgRating={avgRating}/>
             </Col>
           </Row>
         </Container>
