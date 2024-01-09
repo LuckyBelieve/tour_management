@@ -81,26 +81,29 @@ const Home = () => {
           <Row>
             <Col lg="6">
               <div className="experience_content">
-                <Subtitle subtitle={"Experience"}/>
-                <h2>with all experience <br/> we will serve you</h2>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  <br/>
+                <Subtitle subtitle={"Experience"} />
+                <h2>
+                  with all experience <br /> we will serve you
+                </h2>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  <br />
                   Lorem ipsum dolor sit amet consectetur adipisicing.
                 </p>
               </div>
               <div className="counter__wrapper d-flex align-items-center gap-5">
-                 <div className="counter_box">
+                <div className="counter_box">
                   <span>12k+</span>
                   <h6>successfull trip</h6>
-                 </div>
-                 <div className="counter_box">
+                </div>
+                <div className="counter_box">
                   <span>2k+</span>
                   <h6>regular clients</h6>
-                 </div>
-                 <div className="counter_box">
+                </div>
+                <div className="counter_box">
                   <span>15</span>
                   <h6>years experience</h6>
-                 </div>
+                </div>
               </div>
             </Col>
             <Col lg="6">
@@ -116,11 +119,13 @@ const Home = () => {
         <Container>
           <Row>
             <Col lg="12">
-              <Subtitle subtitle={"Gallery"}/>
-              <h2 className="gallery_title">Visit our customers tour gallery</h2>
+              <Subtitle subtitle={"Gallery"} />
+              <h2 className="gallery_title">
+                Visit our customers tour gallery
+              </h2>
             </Col>
             <Col lg="12">
-              <MainGallery/>
+              <MainGallery />
             </Col>
           </Row>
         </Container>
@@ -130,14 +135,14 @@ const Home = () => {
         <Container>
           <Row>
             <Col lg="12">
-              <Subtitle subtitle={"Fan love"}/>
+              <Subtitle subtitle={"Fan love"} />
               <h2 className="testimonial_title">what our fans says about us</h2>
-              <Testimonials/>
+              <Testimonials />
             </Col>
           </Row>
         </Container>
       </section>
-      <Newsletter/>
+      <Newsletter />
     </>
   );
 };

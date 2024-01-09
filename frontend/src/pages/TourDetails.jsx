@@ -50,11 +50,11 @@ const TourDetails = () => {
       const res = await fetch(`${baseUrl}/review/create/${id}`, {
         method: "POST",
         headers: { "content-type": "application/json" },
-        credentials:"include",
+        credentials: "include",
         body: JSON.stringify(reviewObj),
       });
       const result = await res.json();
-      if(!res.ok) alert(result.message);
+      if (!res.ok) alert(result.message);
     } catch (error) {
       alert(error.message);
     }
@@ -166,7 +166,8 @@ const TourDetails = () => {
                                 </p>
                               </div>
                               <span className="d-flex align-items-center">
-                                {review.rating}<i class="ri-star-s-fill"></i>
+                                {review.rating}
+                                <i class="ri-star-s-fill"></i>
                               </span>
                             </div>
                             <h6>{review.reviewText}</h6>

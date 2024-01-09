@@ -22,7 +22,7 @@ const Register = () => {
   const handlChange = (e) => {
     setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   };
-  const {dispatch} = useContext(AuthContext);
+  const { dispatch } = useContext(AuthContext);
   const handleCLick = async (e) => {
     e.preventDefault();
     try {
@@ -33,7 +33,7 @@ const Register = () => {
       });
       const result = await res.json();
       if (!res.ok) alert(result.message);
-      dispatch({ type: "REGISTER_SUCCESS"});
+      dispatch({ type: "REGISTER_SUCCESS" });
       navigate("/login");
     } catch (error) {
       alert(error.message);
