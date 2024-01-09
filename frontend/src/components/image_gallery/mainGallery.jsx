@@ -7,7 +7,7 @@ const MainGallery = () => {
       <Masonry gutter="1rem">
         {galleryImages.map((item, index) => (
           <img
-          className="masonry-gallery"
+            className="masonry-gallery"
             src={item}
             alt="galleryImage"
             key={index}
