@@ -1,34 +1,33 @@
-.footer{
-    padding: 70px;
-    padding-bottom: 30px;
+.footer {
+  padding: 70px;
+  padding-bottom: 30px;
 }
-.footer .logo img{
-    width: 50%;
-    margin-bottom: 1rem;
+.footer .logo img {
+  width: 50%;
+  margin-bottom: 1rem;
 }
-.footer .logo p{
-    color: var(--text-color); 
+.footer .logo p {
+  color: var(--text-color);
 }
-.social_Links span a{
-    text-decoration: none;
-    color: var(--heading-color);
-    font-size: 1.2rem;
+.social_Links span a {
+  text-decoration: none;
+  color: var(--heading-color);
+  font-size: 1.2rem;
 }
-.footer_links_title{
-    font-size: 1.03rem;
-    color: var(--heading-color);
-    margin-bottom: 1rem;
-
+.footer_links_title {
+  font-size: 1.03rem;
+  color: var(--heading-color);
+  margin-bottom: 1rem;
 }
-.footer_quick_links li a{
-    text-decoration: none;
-    color: var(--text-color);
-    font-size: 1rem;
+.footer_quick_links li a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 1rem;
 }
-.footer_quick_links h6 i{
-    color: var(--secondary-color);
+.footer_quick_links h6 i {
+  color: var(--secondary-color);
 }
-.copyright{
-    color: var(--text-color);
-    font-size: 1rem;
+.copyright {
+  color: var(--text-color);
+  font-size: 1rem;
 }

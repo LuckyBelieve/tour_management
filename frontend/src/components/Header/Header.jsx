@@ -20,7 +20,7 @@ const Nav_Links = [
 const Header = () => {
   const headerRef = useRef(null);
   const navigate = useNavigate();
-  const {user, dispatch} = useContext(AuthContext);
+  const { user, dispatch } = useContext(AuthContext);
 
   const logout = () => {
     dispatch({ type: "LOGOUT" });
