@@ -1,1 +1,1 @@
-export const baseUrl = "http://localhost:7500/api/v1";
+export const baseUrl = "https://luckybelieve-tour-management-backend.onrender.com/api/v1";
