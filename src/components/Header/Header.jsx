@@ -22,6 +22,7 @@ const Header = () => {
   const navigate = useNavigate();
   const { user, dispatch } = useContext(AuthContext);
 
+  
   const logout = () => {
     dispatch({ type: "LOGOUT" });
     navigate("/");
